@@ -1,7 +1,7 @@
 // Declare global variables
 let numRows = 0;
 let numCols = 0;
-let colorSelected; 
+let colorSelected;
 
 // Add a row
 function addR() {
@@ -22,6 +22,7 @@ function addR() {
     // Add in the relevant number of cells to fit the column
     for (i = 0; i < columns; i++) {
         cell = row.insertCell()
+        cell.addEventListener("click", function(){colorMe(this)}) // for individual cell coloring
     }
 }
 
@@ -42,7 +43,8 @@ function addC() {
     
     // Add in the relevant number of cells to fit the column
     for (i = 0; i < rows; i++) {
-        table.rows[i].insertCell()
+        cell = table.rows[i].insertCell()
+        cell.addEventListener("click", function(){colorMe(this)}) // for individual cell coloring
     }
 }
 
@@ -141,4 +143,11 @@ function fillAll(){
 // Clear all cells
 function clearAll(){
     alert("Clicked Clear All"); // Replace this line with your code.
+}
+
+function colorMe(cell){
+    // If a color is selected, set the background of the passed cell to it
+    if (colorSelected) {
+        cell.style.backgroundColor = colorSelected
+    }
 }
