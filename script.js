@@ -94,7 +94,26 @@ function selectColor(){
 
 // Fill all uncolored cells
 function fillU(){
-    alert("Clicked Fill All Uncolored"); // Replace this line with your code.
+    // Get our table and a placeholder for number of rows and columns
+    table = document.getElementById("grid")
+    let rows
+    let columns
+    
+    // Continue execution only if the table is not 0x0 and a color is selected
+    if (table.rows[0] && colorSelected) {
+        // Set our values for rows and columns
+        rows = table.rows.length
+        columns = table.rows[0].cells.length
+        
+        // Set each cell in the table without a background color to the selected color
+        for (i = 0; i < rows; i++) {
+            for (j = 0; j < columns; j++) {
+                if (!table.rows[i].cells[j].style.backgroundColor) {
+                    table.rows[i].cells[j].style.backgroundColor = colorSelected
+                }
+            }
+        }
+    }
 }
 
 // Fill all cells
