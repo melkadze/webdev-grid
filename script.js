@@ -48,7 +48,13 @@ function addC() {
 
 // Remove a row
 function removeR() {
-    alert("Clicked Remove Row"); // Replace this line with your code.
+    // Get our table
+    table = document.getElementById("grid")
+    
+    // If any rows exist, delete the last one
+    if (table.rows[0]) {
+        table.deleteRow(table.rows.length - 1)
+    }
 }
 
 // Remove a column
