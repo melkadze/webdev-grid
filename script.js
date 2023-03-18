@@ -59,7 +59,32 @@ function removeR() {
 
 // Remove a column
 function removeC() {
-    alert("Clicked Remove Col"); // Replace this line with your code.
+    // Get our table and a placeholder for number of rows and columns
+    table = document.getElementById("grid")
+    let rows
+    let columns
+    
+    // Continue execution only if the table is not 0x0
+    if (table.rows[0]) {
+        // Set our values for rows and columns
+        rows = table.rows.length
+        columns = table.rows[0].cells.length
+        
+        // If there is only 1 column, we just delete the rows (as it needs to become 0x0)
+        if (columns <= 1) {
+            // We start from the end of the list and decrement our counter
+            // in order to avoid deleted rows messing with the count and
+            // causing some to be skipped
+            for (i = rows - 1; i >= 0; i--) {
+                table.deleteRow(i)
+            }
+        } else {
+            // If multiple columns exist, delete the last one
+            for (i = 0; i < rows; i++) {
+                table.rows[i].deleteCell(columns - 1)
+            }
+        }
+    }
 }
 
 // Set global variable for selected color
