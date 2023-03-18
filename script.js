@@ -1,11 +1,12 @@
-// Declare global variables
-let numRows = 0;
-let numCols = 0;
+// Declare global color variable
+// (we are avoiding using global row/col variables so as to not
+//  duplicate and potentially mismanage existing row/col data
+//  kept by the DOM's table itself)
 let colorSelected;
 
 // Add a row
 function addR() {
-    // Get our table and a placeholder for number of colums
+    // Get our table and a placeholder for number of columns
     table = document.getElementById("grid")
     let columns
     
@@ -28,7 +29,7 @@ function addR() {
 
 // Add a column
 function addC() {
-    // Get our table and a placeholder for number of row
+    // Get our table and a placeholder for number of rows
     table = document.getElementById("grid")
     let rows
     
@@ -90,12 +91,12 @@ function removeC() {
 }
 
 // Set global variable for selected color
-function selectColor(){
+function selectColor() {
     colorSelected = document.getElementById("selectedColorId").value;
 }
 
 // Fill all uncolored cells
-function fillU(){
+function fillU() {
     // Get our table and a placeholder for number of rows and columns
     table = document.getElementById("grid")
     let rows
@@ -119,7 +120,7 @@ function fillU(){
 }
 
 // Fill all cells
-function fillAll(){
+function fillAll() {
     // Get our table and a placeholder for number of rows and columns
     table = document.getElementById("grid")
     let rows
@@ -141,7 +142,7 @@ function fillAll(){
 }
 
 // Clear all cells
-function clearAll(){
+function clearAll() {
     // Get our table and a placeholder for number of rows and columns
     table = document.getElementById("grid")
     let rows
@@ -162,8 +163,8 @@ function clearAll(){
     }
 }
 
-function colorMe(cell){
-    // If a color is selected, set the background of the passed cell to it
+// If a color is selected, set the background of the passed cell to it
+function colorMe(cell) {
     if (colorSelected) {
         cell.style.backgroundColor = colorSelected
     }
