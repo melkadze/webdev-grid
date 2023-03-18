@@ -140,5 +140,22 @@ function fillAll(){
 
 // Clear all cells
 function clearAll(){
-    alert("Clicked Clear All"); // Replace this line with your code.
+    // Get our table and a placeholder for number of rows and columns
+    table = document.getElementById("grid")
+    let rows
+    let columns
+    
+    // Continue execution only if the table is not 0x0
+    if (table.rows[0] && colorSelected) {
+        // Set our values for rows and columns
+        rows = table.rows.length
+        columns = table.rows[0].cells.length
+        
+        // Unset the color for each cell
+        for (i = 0; i < rows; i++) {
+            for (j = 0; j < columns; j++) {
+                table.rows[i].cells[j].style.backgroundColor = null
+            }
+        }
+    }
 }
