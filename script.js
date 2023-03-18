@@ -27,7 +27,23 @@ function addR() {
 
 // Add a column
 function addC() {
-    alert("Clicked Add Col"); // Replace this line with your code.
+    // Get our table and a placeholder for number of row
+    table = document.getElementById("grid")
+    let rows
+    
+    // Set rows to the number of rows, or 1 in the case of a 0x0
+    if (table.rows[0]) {
+        rows = table.rows.length
+    } else {
+        // Add a new row to the table
+        row = table.insertRow()
+        rows = 1
+    }
+    
+    // Add in the relevant number of cells to fit the column
+    for (i = 0; i < rows; i++) {
+        table.rows[i].insertCell()
+    }
 }
 
 // Remove a row
